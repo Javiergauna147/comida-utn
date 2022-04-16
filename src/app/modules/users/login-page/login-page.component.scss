@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+.card {
+    margin: auto;
+    height: 370px;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5);
+    font-family: 'Numans', sans-serif;
+}
+
+
+.card-header h3 {
+    color: white;
+}
+
+//TODO: poner botones y cards como estilos globales
+.login_btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+    float: right;
+}
+.login_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+input:focus{
+    outline: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+}
+
+.input-group {
+    margin-bottom: 14px;
+}
+
+.input-group-prepend span{
+    height: 100%;
+    width: 50px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+    justify-content: center;
+}
+
+.links{
+    color: white;
+}
+    
+.links a{
+    margin-left: 4px;
+}
