@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(__dirname + '/dist/<app-name>'));
+app.use(express.static(__dirname + '/dist/comida-utn'));
 
 app.get('/*', function(req,res) {
 
