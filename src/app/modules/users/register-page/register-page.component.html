@@ -1,0 +1,66 @@
+<form [formGroup]="registerForm" (ngSubmit)="enviarForm()" >
+    <div class="d-flex justify-content-center">
+        <div class="card p-2 w-50 ">
+            <div class="card-body">
+    
+                <div class="row">
+                    <div class="col">
+                        <h5 class="card-title">Registrate</h5>
+                    </div>
+                </div>
+                <hr>
+                <!-- Campo user -->
+                <div class="row form-group">
+                    <div class="col-2">
+                        <label class="col-form-label" >Nombre</label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" formControlName="nombre">
+                    </div>
+                </div>
+                <!-- Campo password -->
+                <div class="row form-group mt-4">
+                    <div class="col-2">
+                        <label class="col-form-label" >apellido</label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="password" formControlName="apellido">
+                    </div>
+                </div>
+                <!-- Campo email -->
+                <div class="row form-group mt-4">
+                    <div class="col-2">
+                        <label class="col-form-label" >email</label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="email" formControlName="email">
+                    </div>
+                </div>
+                <!-- Campo password -->
+                <div class="row form-group mt-4">
+                    <div class="col-2">
+                        <label class="col-form-label" >contraseña</label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="password" formControlName="password">
+                    </div>
+                </div>
+                <!-- Campo password -->
+                <div class="row form-group mt-4">
+                    <div class="col-2">
+                        <label class="col-form-label" >repetir contraseña</label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="password" formControlName="passwordRepeat">
+                    </div>
+                </div>
+                <!-- Submit button -->
+                <div class="row mt-4">
+                    <div class="col d-flex justify-content-end mt-4">
+                        <button class="btn btn-primary" type="submit">Ingresar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
