@@ -16,7 +16,7 @@
                         </div>
                         <div class="col">
                             <input class="form-control" type="text" formControlName="email">
-                            <p class="text-danger">Email invalido</p>
+                            <p *ngIf="this.errorEmail" class="text-danger">Email invalido</p>
                         </div>
                     </div>
                     <!-- Campo password -->
@@ -26,16 +26,16 @@
                         </div>
                         <div class="col">
                             <input class="form-control" type="password" formControlName="password">
-                            <p class="text-danger">Contraseña invalida</p>
+                            <p *ngIf="this.errorPassword" class="text-danger">Contraseña invalida</p>
                         </div>
                     </div>
                     <!-- Submit button -->
                     <div class="row mt-4">
-                        <div class="col d-flex justify-content-end mt-4">
+                        <div *ngIf="this.respuestaError" class="col d-flex justify-content-end mt-4">
                             <p class="text-danger">Email o contraseña incorrectos</p>
                         </div>
                         <div class="col d-flex justify-content-end mt-4">
-                            <button class="btn btn-primary" type="submit">Ingresar</button>
+                            <button [disabled]="this.loginForm.invalid" class="btn btn-primary" type="submit">Ingresar</button>
                         </div>
                     </div>
                 </form>
