@@ -19,12 +19,12 @@ export class LoginPageComponent implements OnInit {
 
   crearFormulario() {
     this.loginForm = this.formBuilder.group({
-      user: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
 
-  enviarForm(){
+  logearse(){
     console.log(this.loginForm);
   }
 }
