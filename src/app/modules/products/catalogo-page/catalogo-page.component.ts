@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../models/product-model';
+import { ArticuloService } from '../../../services/articulos/articulo.service';
+import { catchError, of } from 'rxjs';
+import { ArticuloResponse } from '../../../services/articulos/articulo.interface';
 
 @Component({
   selector: 'app-catalogo-page',
@@ -19,9 +22,16 @@ export class CatalogoPageComponent implements OnInit {
     {nombre: "caneita", descripcion: "sarasa", precio: 325.7, tiempoEstimado: 30}
   ]
 
-  constructor() { }
+  constructor(private articuloService: ArticuloService) { }
 
   ngOnInit(): void {
+    this.articuloService.getArticulos().pipe(
+      catchError(err => {
+        return of(err);
+      })
+    ).subscribe((res: ArticuloResponse) => {
+      console.log(res)
+    })
   }
 
 }

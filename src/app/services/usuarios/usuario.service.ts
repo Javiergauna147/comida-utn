@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -13,7 +13,7 @@ export class UsuarioService {
   private urlUsuario: string = environment.API_BASE_ENDPOINT + '/usuario';
 
   private usuarioStorage = localStorage.getItem('usuario');
-  private tokenStorakge = localStorage.getItem('token');
+  private tokenStorage = localStorage.getItem('token');
   
   constructor(private http: HttpClient) { }
 
@@ -30,6 +30,6 @@ export class UsuarioService {
     return JSON.parse(this.usuarioStorage || '{}');
   }
   obtenerToken(){
-    return this.tokenStorakge;
+    return this.tokenStorage;
   }
 }
