@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../models/product-model';
 import { ArticuloService } from '../../../services/articulos/articulo.service';
 import { catchError, of } from 'rxjs';
-import { ArticuloResponse } from '../../../services/articulos/articulo.interface';
+import { Articulo, ArticuloResponse } from '../../../services/articulos/articulo.interface';
 
 @Component({
   selector: 'app-catalogo-page',
@@ -11,16 +10,7 @@ import { ArticuloResponse } from '../../../services/articulos/articulo.interface
 })
 export class CatalogoPageComponent implements OnInit {
 
-  productos: Product[] = [
-    {nombre: "pizza", descripcion: "sarasa asdsad asd asd sad asd asdasdsadsadasdas asdasdasdsad asd asd asd ", precio: 25.5, tiempoEstimado: 30},
-    {nombre: "ensalada", descripcion: "sarasa", precio: 35.5, tiempoEstimado: 30},
-    {nombre: "hamburgesa", descripcion: "sarasa", precio: 85.5, tiempoEstimado: 5},
-    {nombre: "caneita", descripcion: "sarasa", precio: 65.5, tiempoEstimado: 30},
-    {nombre: "pizza", descripcion: "sarasa", precio: 25.5, tiempoEstimado: 30},
-    {nombre: "ensalada", descripcion: "sarasa", precio: 64.5, tiempoEstimado: 30},
-    {nombre: "hamburgesa", descripcion: "sarasa", precio: 600.2, tiempoEstimado: 30},
-    {nombre: "caneita", descripcion: "sarasa", precio: 325.7, tiempoEstimado: 30}
-  ]
+  productos: Articulo[] = [];
 
   constructor(private articuloService: ArticuloService) { }
 
@@ -30,7 +20,8 @@ export class CatalogoPageComponent implements OnInit {
         return of(err);
       })
     ).subscribe((res: ArticuloResponse) => {
-      console.log(res)
+      this.productos = res.items;
+      console.log(this.productos)
     })
   }
 

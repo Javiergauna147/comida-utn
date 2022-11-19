@@ -1,12 +1,14 @@
 export interface ArticuloResponse {
     ok: boolean,
-    articulos: Articulo[]
+    items: Articulo[]
 }
 
 export interface Articulo {
     _id: string,
     denominacion: string,
+    descripcion: string,
     imagen: string,
+    tiempoEstimadoCocina: number,
     precio: Precio,
     detalles: Detalle[]
     categoria: string,
