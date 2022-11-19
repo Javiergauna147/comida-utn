@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Articulo } from '../../../services/articulos/articulo.interface';
+import { CarritoComprasService } from '../carrito-compras-page/carrito-compras.service';
 
 @Component({
   selector: 'app-product-card',
@@ -8,11 +9,15 @@ import { Articulo } from '../../../services/articulos/articulo.interface';
 })
 export class ProductCardComponent implements OnInit {
 
-  @Input() producto: Articulo;
+  @Input() articulo: Articulo;
 
-  constructor() { }
+  constructor( private carritoComprasService: CarritoComprasService ) { }
 
   ngOnInit(): void {
+  }
+
+  agregarProductoAlCarrito(){
+    this.carritoComprasService.agregarArticulo(this.articulo);
   }
 
 }

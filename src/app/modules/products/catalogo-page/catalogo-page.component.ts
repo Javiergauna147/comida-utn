@@ -10,7 +10,7 @@ import { Articulo, ArticuloResponse } from '../../../services/articulos/articulo
 })
 export class CatalogoPageComponent implements OnInit {
 
-  productos: Articulo[] = [];
+  articulos: Articulo[] = [];
 
   constructor(private articuloService: ArticuloService) { }
 
@@ -20,8 +20,7 @@ export class CatalogoPageComponent implements OnInit {
         return of(err);
       })
     ).subscribe((res: ArticuloResponse) => {
-      this.productos = res.items;
-      console.log(this.productos)
+      this.articulos = res.items;
     })
   }
 
