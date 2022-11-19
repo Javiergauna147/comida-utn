@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Articulo } from 'src/app/services/articulos/articulo.interface';
 
 @Component({
   selector: 'app-carrito-compras-page',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarritoComprasPageComponent implements OnInit {
 
-  constructor() { }
+  articulos: Articulo[];
 
+  constructor() {
+    this.articulos = JSON.parse(localStorage.getItem('carrito') || '[]')
+  }
   ngOnInit(): void {
   }
 
