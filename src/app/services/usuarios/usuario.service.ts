@@ -26,7 +26,7 @@ export class UsuarioService {
   guardarUsuario(usuario: Usuario){
     localStorage.setItem('usuario', JSON.stringify(usuario));
   }
-  obtenerUsuario(){
+  obtenerUsuario(): Usuario{
     return JSON.parse(this.usuarioStorage || '{}');
   }
   obtenerToken(){

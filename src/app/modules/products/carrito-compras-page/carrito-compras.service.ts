@@ -12,8 +12,17 @@ export class CarritoComprasService {
   constructor() { }
 
   agregarArticulo(articulo: Articulo) {
-    let carritoStorage: Articulo[] = JSON.parse(localStorage.getItem('carrito') || '[]');
-    carritoStorage.push(articulo);
+    let carritoStorage: {cantidad: number, articulo: Articulo}[] = JSON.parse(localStorage.getItem('carrito') || '[]');
+    let articuloEnCarrito: boolean = false;
+    carritoStorage.forEach(item => {
+      if(item.articulo._id === articulo._id){
+        item.cantidad++;
+        articuloEnCarrito = true;
+      }
+    })
+    if(!articuloEnCarrito){
+      carritoStorage.push({cantidad: 1, articulo: articulo})
+    }
     localStorage.setItem('carrito', JSON.stringify(carritoStorage));
     this.actualizacionCarrito.next(true);
   }

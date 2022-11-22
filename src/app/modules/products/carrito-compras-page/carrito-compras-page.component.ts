@@ -8,10 +8,10 @@ import { Articulo } from 'src/app/services/articulos/articulo.interface';
 })
 export class CarritoComprasPageComponent implements OnInit {
 
-  articulos: Articulo[];
+  carritoCompra: {cantidad: number, articulo: Articulo}[];
 
   constructor() {
-    this.articulos = JSON.parse(localStorage.getItem('carrito') || '[]')
+    this.carritoCompra = JSON.parse(localStorage.getItem('carrito') || '[]')
   }
   ngOnInit(): void {
   }

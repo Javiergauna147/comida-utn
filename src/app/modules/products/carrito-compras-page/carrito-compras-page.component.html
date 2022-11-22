@@ -1,15 +1,18 @@
-<div *ngIf="articulos.length > 0">
-    <div *ngFor="let articulo of articulos">
+<div *ngIf="carritoCompra.length > 0">
+    <div *ngFor="let item of carritoCompra">
         <div class="row">
             <div class="col-md-4">
                 <img src="https://images.deliveryhero.io/image/pedidosya/products/7cbefacc-dce6-4afd-8e82-0a76b7802af2.jpg?quality=90&width=1536&webp=1" class="card-img-top">
             </div>
             <div class="col-md-8">
                 <div class="row">
-                    <h5>{{articulo.denominacion}}</h5>
+                    <h5>{{item.articulo.denominacion}}</h5>
                 </div>
                 <div class="row">
-                    <h6>Precio: {{articulo.precio.precioVenta}}</h6>
+                    <h6>Precio: {{item.articulo.precio.precioVenta}}</h6>
+                </div>
+                <div class="row">
+                    <h6>Cantidad: {{item.cantidad}}</h6>
                 </div>
             </div>
         </div>
@@ -17,6 +20,6 @@
     </div>
 </div>
 
-<div *ngIf="articulos.length === 0">
+<div *ngIf="carritoCompra.length === 0">
     <h1>No hay articulos en el carrito</h1>
 </div>
