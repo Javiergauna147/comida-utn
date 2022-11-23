@@ -18,6 +18,15 @@
         </div>
         <hr>
     </div>
+    <div>
+        <h5>Selecciona el domicilio de entrega</h5>
+        <select [(ngModel)]="domicilioSelected" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option *ngFor="let domicilio of domicilios" [ngValue]="domicilio">{{domicilio.calle}} {{domicilio.numero}} - {{domicilio.localidad}}</option>
+        </select>
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary" (click)="crearPedido()">Siguiente</button>
+    </div>
 </div>
 
 <div *ngIf="carritoCompra.length === 0">
