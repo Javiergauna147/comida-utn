@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Articulo } from 'src/app/services/articulos/articulo.interface';
 import { Domicilio } from 'src/app/services/usuarios/usuario.interface';
 import { UsuarioService } from '../../../services/usuarios/usuario.service';
+import { PedidoService } from '../../../services/pedidos/pedido.service';
+import { CarritoComprasService } from './carrito-compras.service';
 
 @Component({
   selector: 'app-carrito-compras-page',
@@ -13,20 +15,18 @@ export class CarritoComprasPageComponent implements OnInit {
   carritoCompra: {cantidad: number, articulo: Articulo}[];
 
   domicilioSelected: Domicilio;
-
   domicilios: Domicilio[] = this.usuarioService.obtenerUsuario().domicilios;
 
-  constructor(private usuarioService: UsuarioService) {
-    this.carritoCompra = JSON.parse(localStorage.getItem('carrito') || '[]')
-    console.log("domicilios disponibles");
-    console.log(this.domicilios);
+  constructor(private usuarioService: UsuarioService, private pedidoService: PedidoService, private carritoComprasService: CarritoComprasService) {
+    this.carritoCompra = carritoComprasService.getCarrito();
   }
 
   ngOnInit(): void {
   }
   
   crearPedido() {
-    console.log(this.domicilioSelected);
+    this.pedidoService.crearPedido({domocilio: this.domicilioSelected, detalle: this.carritoCompra}).subscribe((resp: any) => {
+      // this.carritoComprasService.vaciarCarrito();
+    })
   }
-
 }

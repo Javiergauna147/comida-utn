@@ -31,4 +31,14 @@ export class CarritoComprasService {
     localStorage.setItem('carrito', JSON.stringify(articulos));
     this.actualizacionCarrito.next(true);
   }
+
+  getCarrito(){
+    return JSON.parse(localStorage.getItem('carrito') || '[]');
+  }
+
+  vaciarCarrito() {
+    localStorage.setItem('carrito', JSON.stringify([]));
+    this.actualizacionCarrito.next(true);
+  }
+
 }
